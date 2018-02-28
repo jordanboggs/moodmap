@@ -24,7 +24,10 @@ app.use(passport.session()); // persistent login sessions
 const models = require('./app/models');
 
 // Routes
-const authRoute = require('./app/routes/auth.js')(app);
+const authRoute = require('./app/routes/auth.js')(app, passport);
+
+// Load passport strategies
+require('./config/passport/passport.js')(passport, models.user);
 
 // Sync database
 models.sequelize.sync()
