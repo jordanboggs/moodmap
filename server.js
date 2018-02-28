@@ -1,6 +1,6 @@
 /*
  * I am following along with this youtube video:
- * https://www.youtube.com/watch?v=vDdJBpOhTNo 
+ * https://www.youtube.com/watch?v=vDdJBpOhTNo
  */
 
 const express        = require('express'),
