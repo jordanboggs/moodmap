@@ -8,7 +8,8 @@ const express    = require('express'),
       passport   = require('passport'),
       session    = require('express-session'),
       bodyParser = require('body-parser'),
-      env        = require('dotenv').load();
+      env        = require('dotenv').load(),
+      exphbs     = require('express-handlebars');
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,10 +23,20 @@ app.use(passport.session()); // persistent login sessions
 // Models
 const models = require('./app/models');
 
+// Routes
+const authRoute = require('./app/routes/auth.js')(app);
+
 // Sync database
 models.sequelize.sync()
   .then(() => console.log("Nice! Database looks fine."))
-  .catch((err) => console.log(err, "Something went wrong with the Database update!"))`;
+  .catch((err) => console.log(err, "Something went wrong with the Database update!"));
+
+// For Handlebars
+app.set('views', './app/views');
+app.engine('hbs', exphbs({
+  extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
 
 app.get('/', (req, res) => {
   res.send("Welcome to Passport with Sequelize");
