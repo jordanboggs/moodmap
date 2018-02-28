@@ -1,25 +1,30 @@
 {
   "name": "project2",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Project 2 for University of Denver Coding Bootcamp",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/preaksneview/project2.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Bits Please",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/preaksneview/project2/issues"
   },
   "homepage": "https://github.com/preaksneview/project2#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "passport": "^0.4.0"
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "mysql2": "^1.5.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.35.0"
   }
 }
