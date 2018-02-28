@@ -1,0 +1,41 @@
+/*
+ * Following this tutorial:
+ * https://code.tutsplus.com/tutorials/using-passport-with-sequelize-and-mysql--cms-27537
+ */
+
+const express    = require('express'),
+      app        = express(),
+      passport   = require('passport'),
+      session    = require('express-session'),
+      bodyParser = require('body-parser'),
+      env        = require('dotenv').load();
+
+//For BodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// For Passport
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
+// Models
+const models = require('./app/models');
+
+// Sync database
+models.sequelize.sync()
+  .then(() => console.log("Nice! Database looks fine."))
+  .catch((err) => console.log(err, "Something went wrong with the Database update!"))`;
+
+app.get('/', (req, res) => {
+  res.send("Welcome to Passport with Sequelize");
+});
+
+app.listen(5000, (err) => {
+  if (!err) {
+    console.log("Site is live");
+  }
+  else {
+    console.log(err);
+  }
+});
