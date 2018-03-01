@@ -4,6 +4,7 @@ module.exports = function(passport, user) {
   const User = user;
   const LocalStrategy = require('passport-local').Strategy;
 
+  // Local Signup
   passport.use('local-signup', new LocalStrategy(
     {
       usernameField: 'email',
@@ -38,6 +39,47 @@ module.exports = function(passport, user) {
             if (newUser) return done(null, newUser);
           });
         }
+      });
+    }
+  ));
+
+  // Local Signin
+  passport.use('local-signin', new LocalStrategy(
+    {
+      // by default, local strategy uses username and password, but we want email
+      usernameField: 'email',
+      passwordField: 'password',
+      passReqToCallback: true // allows us to pass back the entire request to the callback
+    },
+    function(req, email, password, done) {
+      const User = user;
+      const isValidPassword = 
+        (userpass, password) => bCrypt.compareSync(password, userpass);
+      
+      User.findOne({
+        where: {
+          email: email
+        }
+      }).then(function(user) {
+        if (!user) {
+          return done(null, false, {
+            message: "Email does not exist"
+          });
+        }
+        if (!isValidPassword(user.password, password)) {
+          return done(null, false, {
+            message: "Incorrect password."
+          });
+        }
+
+        const userinfo = user.get();
+        return done(null, userinfo);
+      }).catch(function(err) {
+        console.log("Error:",err);
+        
+        return done(null, false, {
+          message: "Something went wrong with your signin."
+        });
       });
     }
   ));
