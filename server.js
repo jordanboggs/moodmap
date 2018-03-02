@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 
 app.listen(5000, (err) => {
   if (!err) {
-    console.log("Site is live");
+    console.log("Listening on port 5000");
   }
   else {
     console.log(err);
