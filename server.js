@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * Following this tutorial:
  * https://code.tutsplus.com/tutorials/using-passport-with-sequelize-and-mysql--cms-27537
@@ -56,3 +57,33 @@ app.listen(PORT, (err) => {
     console.log(err);
   }
 });
+=======
+// Dependencies
+var express = require('express');
+var bodyParser = require('body-parser');
+var exphbs = require('express-handlebars');
+
+// Files
+var routes = require('./controllers/controllers.js');
+
+// Call Express
+var app = express();
+
+// Define port
+var PORt = process.env.PORT || 3000;
+
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use(routes);
+
+// Set layouts
+app.engine("handlebars", exphbs({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
+
+// Activate app
+app.listen(PORT, function() {
+    console.log('App listening on localhost: ' + PORT);
+});
+
+>>>>>>> 3c00e99bf5fe2ad8d3911ed3d31dac05eec4ab5f
