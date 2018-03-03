@@ -1,28 +1,57 @@
-// Dependencies
-var express = require('express');
-var bodyParser = require('body-parser');
-var exphbs = require('express-handlebars');
+const express    = require('express')
+    , app        = express()
+    , passport   = require('passport')
+    , session    = require('express-session')
+    , bodyParser = require('body-parser')
+    , env        = require('dotenv').load()
+    , exphbs     = require('express-handlebars');
 
 // Files
-var routes = require('./controllers/controllers.js');
+// var routes = require('./controllers/controllers.js');
 
-// Call Express
-var app = express();
+// Port
+const PORT = process.env.PORT || 3000;
 
-// Define port
-var PORt = process.env.PORT || 3000;
-
-app.use(express.static('public'));
-app.use(bodyParser.urlencoded({extended: false}));
+//For BodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(routes);
 
-// Set layouts
-app.engine("handlebars", exphbs({defaultLayout: "main"}));
-app.set("view engine", "handlebars");
+// For Passport
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
 
-// Activate app
-app.listen(PORT, function() {
-    console.log('App listening on localhost: ' + PORT);
+// Models
+const models = require('./models');
+
+// Routes
+const authRoute = require('./routes/auth.js')(app, passport);
+app.use(express.static('public'));
+
+// Load passport strategies
+require('./config/passport/passport.js')(passport, models.user);
+
+// Sync database
+models.sequelize.sync()
+  .then(() => console.log("Nice! Database looks fine."))
+  .catch((err) => console.log(err, "Something went wrong with the Database update!"));
+
+// For Handlebars
+app.set('views', './views');
+app.engine('hbs', exphbs({
+  extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
+
+app.get('/', (req, res) => {
+  res.send("Welcome to Passport with Sequelize");
 });
 
+app.listen(PORT, (err) => {
+  if (!err) {
+    console.log("Listening on port",PORT);
+  }
+  else {
+    console.log(err);
+  }
+});
