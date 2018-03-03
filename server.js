@@ -45,7 +45,7 @@ app.engine('hbs', exphbs({
 app.set('view engine', '.hbs');
 
 app.get('/', (req, res) => {
-  res.sendfile(path.join(__dirname, "public/signin.html"));
+  res.sendfile(path.join(__dirname, "public/index.html"));
 });
 
 app.listen(PORT, (err) => {
