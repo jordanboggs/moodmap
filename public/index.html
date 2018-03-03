@@ -32,7 +32,7 @@
 		<div class="heading">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<!-- <form class="login100-form validate-form" method="post" action="signin">
 					<div class="w-full text-center">
 						<a href="#" class="txt4">
 							moodMap
@@ -71,6 +71,13 @@
 							Sign Up
 						</a>
 					</div>
+				</form> -->
+				<form id="signin" name="signin" method="post" action="signin">
+					<label for="email">Email Address</label>
+					<input class="text" name="email" type="text" />
+					<label for="password">Password</label>
+					<input name="password" type="password" />
+					<input class="btn" type="submit" value="Sign In" />
 				</form>
 
 				<div class="login100-more" style="background-image: url('images/colorful_mtn.jpg');"></div>
@@ -97,7 +104,7 @@
 
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 
-	<script src="js/main.js"></script>
+	<!-- <script src="js/main.js"></script> -->
 
 </body>
 </html>
