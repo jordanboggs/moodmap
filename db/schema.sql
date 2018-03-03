@@ -1,8 +1,8 @@
 CREATE DATABASE MoodMap;
 
-USE DATABASE MoodMap;
+USE MoodMap;
 
-CREATE TABLE user (
+CREATE TABLE UserInfo (
     id INT AUTO_INCREMENT,
     UserID INT,
     FirstName TEXT,
