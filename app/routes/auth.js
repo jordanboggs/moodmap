@@ -1,9 +1,16 @@
-const authController = require('../controllers/authcontroller.js');
+const authController = require('../controllers/authcontroller.js')
+    , path = require('path');
 
 module.exports = function(app, passport) {
-  app.get('/signup', authController.signup);
-  app.get('/signin', authController.signin);
-  app.get('/dashboard', isLoggedIn, authController.dashboard);
+  app.get('/signup', function(req, res) {
+    res.sendFile(path.join(__dirname, "/../../public/signup.html"));
+  });
+  app.get('/signin', function(req, res) {
+    res.sendfile(path.join(__dirname, "../../public/signin.html"));
+  });
+  app.get('/dashboard', isLoggedIn, function(req, res) {
+    res.sendfile(path.join(__dirname, "../../public/dashboard.html"));
+  });
   app.get('/logout', authController.logout);
   
   app.post('/signup', passport.authenticate('local-signup', {

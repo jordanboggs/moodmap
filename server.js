@@ -3,13 +3,16 @@
  * https://code.tutsplus.com/tutorials/using-passport-with-sequelize-and-mysql--cms-27537
  */
 
-const express    = require('express'),
-      app        = express(),
-      passport   = require('passport'),
-      session    = require('express-session'),
-      bodyParser = require('body-parser'),
-      env        = require('dotenv').load(),
+const express    = require('express')
+    , app        = express()
+    , passport   = require('passport')
+    , session    = require('express-session')
+    , bodyParser = require('body-parser')
+    , env        = require('dotenv').load()
       // exphbs     = require('express-handlebars');
+
+// Port
+const PORT = process.env.PORT || 3000;
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -45,9 +48,9 @@ app.get('/', (req, res) => {
   res.send("Welcome to Passport with Sequelize");
 });
 
-app.listen(5000, (err) => {
+app.listen(PORT, (err) => {
   if (!err) {
-    console.log("Listening on port 5000");
+    console.log("Listening on port",PORT);
   }
   else {
     console.log(err);
