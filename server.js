@@ -1,5 +1,6 @@
 const express    = require('express')
     , app        = express()
+    , path       = require('path')
     , passport   = require('passport')
     , session    = require('express-session')
     , bodyParser = require('body-parser')
@@ -44,7 +45,7 @@ app.engine('hbs', exphbs({
 app.set('view engine', '.hbs');
 
 app.get('/', (req, res) => {
-  res.send("Welcome to Passport with Sequelize");
+  res.sendfile(path.join(__dirname, "public/index.html"));
 });
 
 app.listen(PORT, (err) => {
