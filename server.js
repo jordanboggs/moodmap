@@ -9,7 +9,7 @@ const express    = require('express'),
       session    = require('express-session'),
       bodyParser = require('body-parser'),
       env        = require('dotenv').load(),
-      exphbs     = require('express-handlebars');
+      // exphbs     = require('express-handlebars');
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,11 +35,11 @@ models.sequelize.sync()
   .catch((err) => console.log(err, "Something went wrong with the Database update!"));
 
 // For Handlebars
-app.set('views', './app/views');
-app.engine('hbs', exphbs({
-  extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
+// app.set('views', './app/views');
+// app.engine('hbs', exphbs({
+//   extname: '.hbs'
+// }));
+// app.set('view engine', '.hbs');
 
 app.get('/', (req, res) => {
   res.send("Welcome to Passport with Sequelize");
