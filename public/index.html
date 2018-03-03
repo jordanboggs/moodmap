@@ -32,6 +32,32 @@
 		<div class="heading">
 		<div class="container-login100">
 			<div class="wrap-login100">
+				<div class="container">
+				  <div class="w-full text-center">
+					<form id="signin" name="signin" method="post" action="signin">
+						<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
+				        	<!-- <label for="email">Email Address</label> -->
+				        		<input class="text" name="email" type="text" placeholder="Email"/>
+				      	</div>
+						<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type password">
+							<label for="password">Password</label>
+				        		<input type="text" id="fname" name="firstname" placeholder="Your name..">
+				        		<input name="password" type="password" />
+				      </div>
+				    </div>
+				    <div class="row">
+				      <div class="col-25">
+				        <label for="lname">Last Name</label>
+				      </div>
+				      <div class="col-75">
+				        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+				      </div>
+				    </div>
+				    <div class="row">
+				      <input type="submit" value="Submit">
+				    </div>
+				  </form>
+				</div>
 				<!-- <form class="login100-form validate-form" method="post" action="signin">
 					<div class="w-full text-center">
 						<a href="#" class="txt4">
@@ -86,6 +112,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 	
 
 	<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
