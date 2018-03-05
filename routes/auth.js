@@ -6,10 +6,10 @@ module.exports = function(app, passport) {
     res.sendFile(path.join(__dirname, "/../public/signup.html"));
   });
   app.get('/signin', function(req, res) {
-    res.sendfile(path.join(__dirname, "../public/index.html"));
+    res.sendFile(path.join(__dirname, "../public/index.html"));
   });
   app.get('/dashboard', isLoggedIn, function(req, res) {
-    res.sendfile(path.join(__dirname, "../public/dashboard.html"));
+    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
   app.get('/logout', authController.logout);
   
