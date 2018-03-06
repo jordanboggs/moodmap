@@ -1,3 +1,33 @@
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
+}
+
+/*//////////////////////////////////////////////////////////////////*/
+
 html,body {padding:0;margin:0;}
 .wrap {
   font:12px Arial, san-serif;
@@ -19,7 +49,6 @@ form .likert {
   margin:0;
   padding:0 0 35px;
   display:block;
-  border-bottom:2px solid #efefef;
 }
 form .likert:last-of-type {border-bottom:0;}
 form .likert:before {
@@ -28,7 +57,7 @@ form .likert:before {
   top:11px;
   left:9.5%;
   display:block;
-  background-color:#efefef;
+  background-color: #222b38;
   height:4px;
   width:78%;
 }
@@ -44,9 +73,12 @@ form .likert li input[type=radio] {
   top:0;
   left:50%;
   margin-left:-6px;
-  
 }
-form .likert li label {width:100%;}
+form .likert li label{
+  width:100%;
+  color: #329bd4;
+  font-size: 18px;
+}
 form .buttons {
   margin:30px 0;
   padding:0 4.25%;
@@ -62,3 +94,46 @@ form .buttons .clear {background-color: #e9e9e9;}
 form .buttons .submit {background-color: #67ab49;} 
 form .buttons .clear:hover {background-color: #ccc;}
 form .buttons .submit:hover {background-color: #14892c;} 
+
+
+button {
+  outline: none !important;
+  border: none;
+  background: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+
+.btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+  border-radius: 3px;
+  background: #576D8C;
+
+  font-family: Montserrat-Bold;
+  font-size: 12px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.btn:hover {
+  background: #291B2C;
+}
