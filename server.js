@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 // For Passport
 app.use(session({
-  secret: process.env.LOCAL_SECRET, 
+  secret: process.env.LOCAL_SECRET || "secret", 
   resave: true, 
   saveUninitialized:true
 })); // session secret
@@ -36,6 +36,7 @@ const models = require('./models');
 // Routes
 const authRoute = require('./routes/auth.js')(app, passport);
 app.use(express.static(path.join(__dirname, '/public')));
+require("./routes/api-routes.js")(app);
 
 // Load passport strategies
 require('./config/passport/passport.js')(passport, models.User);
