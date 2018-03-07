@@ -37,8 +37,20 @@ module.exports = function(sequelize, Sequelize) {
 			defaultValue: 'active'
 		}
 	});
-	UserInfo.associate = function(models) {
-    UserInfo.hasMany(models.Question1, {
+	User.associate = function(models) {
+    User.hasMany(models.Question1, {
+			onDelete: "cascade"
+		});
+		User.hasMany(models.Question2, {
+			onDelete: "cascade"
+		});
+		User.hasMany(models.Question3, {
+			onDelete: "cascade"
+		});
+		User.hasMany(models.Question4, {
+			onDelete: "cascade"
+		});
+		User.hasMany(models.Question5, {
 			onDelete: "cascade"
     });
 	};
