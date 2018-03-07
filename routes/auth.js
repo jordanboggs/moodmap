@@ -11,7 +11,7 @@ module.exports = function(app, passport) {
   app.get('/survey', isLoggedIn, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/survey.html"));
   });
-  app.get('/charts', isLoggedIn, function(req, res) {
+  app.get('/profile', isLoggedIn, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/charts.html"));
   });
   app.get('/logout', authController.logout);
