@@ -2,8 +2,14 @@ var Questions = require("../models/questions");
 var User = require("../models/user");
 
 module.exports = function(app) {
-    //get user information
-    
+    //get user information for dashboard
+    app.get("/api/user", function(req, res) {
+        User.findAll({
+            where: {
+                username: req.params.user
+            }
+        });
+    });
 
     //get question answers
     app.get("/api/questions", function(req, res) {

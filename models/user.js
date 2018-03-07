@@ -63,6 +63,7 @@ module.exports = function(sequelize, Sequelize) {
 		}
 	});
 	User.sync().then(() => {
+		//Dummy user data
 		User.create({
 		  userId: 1,
 		  firstname: 'Gregory',
