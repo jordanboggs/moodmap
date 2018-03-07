@@ -648,8 +648,11 @@ h3 {
   margin: 0 auto;
   padding: 10px;
   background-color: rgb(255 255 255 0.5);
-<<<<<<< HEAD
 }
-=======
+
+#survey-input2 {
+  width: 75%;
+  margin: 0 auto;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.5);
 }
->>>>>>> dc1dc978cfc98ce822d7858c70ec3f3867f3940b
