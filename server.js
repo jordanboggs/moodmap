@@ -31,7 +31,7 @@ app.use(passport.session()); // persistent login sessions
 const models = require('./models');
 
 //Test
-// const test = require('./test/test');
+const test = require('./test/test');
 
 // Routes
 const authRoute = require('./routes/auth.js')(app, passport);
