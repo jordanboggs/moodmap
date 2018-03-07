@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico" />
 
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="assets/js/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
 </head>
 
 <style>
@@ -42,6 +46,22 @@
     background-color: black;
     margin: 6px 0;
   }
+  .rightchart{
+    width:33%;
+    height: 33%;
+    float: right;
+    padding:50px;
+  }
+  .leftchart{
+    width:33%;
+    float: left;
+    padding:50px;
+  }
+  .centerchart{
+    width:33%;
+    float: left;
+    padding:50px;
+  }
 </style>
 
 <body>
@@ -73,7 +93,7 @@
     </div>
   </div>
 
-    <div class="container">
+    <!-- <div class="container">
       <div class="row">
         <div class="col-md-8">
           <h2>Your Goals</h2>
@@ -84,11 +104,34 @@
             <li>Goal One</li>
             <li>Goal One</li>
           </ul>
-        </div>
-        <div class="col-md-4">
+        </div> -->
+        <div class="col-md-8">
           <h2>Your Progress</h2>
-          <p>Pretty Graph Here</p>
-        </div>
+          <br>
+          <div>
+            <div class="chart-container leftchart" style="position: relative;">
+              <h4>Question 1 - How are you feeling today?</h4>
+              <canvas id="question1"></canvas>
+            </div>
+            <div class="chart-container centerchart" style="position: relative;">
+              <h4>Question 2 - What's your energy level today?</h4>
+              <canvas id="question2"></canvas>
+            </div>   
+            <div class="chart-container rightchart" style="position: relative;">
+                <h4>Question 3 - I had trouble falling asleep or staying asleep?</h4>
+                <canvas id="question3"></canvas>
+            </div>
+          </div>
+          <div>
+              <div class="chart-container leftchart" style="position: relative;">
+                <h4>Question 4 - Did you remember to take your medication today?</h4>
+                <canvas id="question4"></canvas>
+              </div>
+              <div class="chart-container centerchart" style="position: relative;">
+                <h4>Question 5 - I am having trouble concentrating on things such as television or reading a book.</h4>
+                <canvas id="question5"></canvas>
+              </div>               
+            </div>
       </div>
     </div>
   </div>

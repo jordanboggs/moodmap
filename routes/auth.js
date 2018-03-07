@@ -24,6 +24,9 @@ module.exports = function(app, passport) {
     successRedirect: '/survey',
     failureRedirect: '/signin'
   }));
+  app.get("/charts", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/charts.html"));
+  });
 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
