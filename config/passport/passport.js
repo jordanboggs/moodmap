@@ -30,6 +30,7 @@ module.exports = function(passport, user) {
           const data = {
             email: email,
             password: userPassword,
+            username: email,
             firstname: req.body.firstname,
             lastname: req.body.lastname
           };
