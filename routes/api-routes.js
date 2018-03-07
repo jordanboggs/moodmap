@@ -1,7 +1,7 @@
 var Questions = require("../models/questions");
 var User = require("../models/user");
+var db = require("../models");
 var Survey = require("../models/survey");  // New survey Model require ??
-
 
 module.exports = function(app) {
     //get user information for dashboard
@@ -45,5 +45,20 @@ app.post('/api/survey', function(req,res) {
           userID: userid // passed in from the User find userid query 
         });
       });
-    });
   
+  // GET route for getting all of the question data
+    app.get("/api/charts/question_id/:id", function(req, res) {
+        var query = {};
+        console.log(req.params.id);
+        if (req.params.id) {
+        query.questionId = req.params.id;
+        }
+        db.Questions.findAll({
+        where: query
+    }).then(function(db) {
+        res.json(db);
+        });
+    }); 
+});
+  
+
