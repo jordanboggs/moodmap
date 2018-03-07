@@ -1,70 +1,75 @@
-<!-- <body>
-  <form id="signup" method="post" action="/signup">
-    <label for="email">Email Address</label>
-    <input class="text" name="email" type="email" />
-    <label for="firstname">Firstname</label>
-    <input name="firstname" type="text" />
-    <label for="lastname">Lastname</label>
-    <input name="lastname" type="text" />
-    <label for="password">Password</label>
-    <input name="password" type="password" />
-    <input class="btn" type="submit" value="Sign Up" />
-  </form> -->
-
-
 <!DOCTYPE html>
 <html>
 <style>
+  body {
+    font-family: 'Lato';
+    background-image: url("assets/images/sunset.jpg");
+    background-repeat: no-repeat;
+  }
 
-body {font-family: Poppins-Regular; background-image: url("assets/images/sunset.jpg"); background-repeat: no-repeat;}
-* {box-sizing: border-box}
+  h1 {
+    font-size: 36pt;
+    text-align: center;
+    letter-spacing: 2pt;
+    font-weight: bold;
+  }
 
+  section {
+    width: 35px;
+    height: 2px;
+    background-color: black;
+    margin: 6px 0;
+}
 </style>
-
-  <title>moodMap Sign Up</title>
-  <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
-  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+<title>moodMap | Sign Up</title>
+<link rel="icon" type="image/png" href="assets/images/icons/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 
 <body>
 
-<form id="signup" name="signup" method="post" action="/signup">
+  <!-- Hamburger  Menu -->
   <div class="container">
-    <h1 style="color: #291B2C; font-style: Italic; font-size: 40px; text-align: center">Sign Up for moodMap</h1>
-    <hr>
-
-    <label for="email">Email</label>
-    <input type="email" class="textE" placeholder="Email Address" name="email" required>
-
-    <label for="psw">Password</label>
-    <input type="password" class="text" placeholder="Enter Password" name="password" id="password" required>
-
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" class="text" placeholder="Repeat Password" name="password-repeat" id="password-repeat" required>
-<!--       <button type="button" class="btn">Cancel</button> -->
-
-    <label for="firstname">First name</label>
-    <input type="text" class="text" placeholder="First name" name="firstname" required>
-
-    <label for="lastname">Last name</label>
-    <input type="text" class="text" placeholder="Last name" name="lastname" required>
-      <button type="submit" class="btn">Sign Up</button>
+    <a href="index.html">
+    <div class="row" align="left">
+      <section></section>
+      <section></section>
+      <section></section>
+    </div></a>
   </div>
-</form>
 
+  <!-- Header Image -->
+  <div class="container-fluid">
+    <div class="row">
+      <p align="center">
+        <img src="./assets/images/moodmapp-01.png" width="250">
+      </p>
+      <p align="center">
+        <h3>Sign Up</h3>
+      </p>
+    </div>
+
+    <div class="row" id="survey-input">
+      <form id="signup" name="signup" method="post" action="/signup">
+        <label for="firstname">First name</label>
+        <input type="text" class="text" placeholder="First name" name="firstname" required>
+
+        <label for="lastname">Last name</label>
+        <input type="text" class="text" placeholder="Last name" name="lastname" required>
+        <label for="email">Email</label>
+        <input type="email" class="textE" placeholder="Email Address" name="email" required>
+
+        <label for="psw">Password</label>
+        <input type="password" class="text" placeholder="Enter Password" name="password" required>
+
+        <label for="psw-repeat">
+          <b>Repeat Password</b>
+        </label>
+        <input type="password" class="text" placeholder="Repeat Password" name="password-repeat" required>
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+    </div>
+
+</div>
 </body>
-<script>
-  const password = document.getElementById("password")
-    , confirm_password = document.getElementById("password-repeat");
 
-  function validatePassword(){
-    if(password.value != confirm_password.value) {
-      confirm_password.setCustomValidity("Passwords don't match.");
-    } else {
-      confirm_password.setCustomValidity('');
-    }
-  }
-
-  password.onchange = validatePassword;
-  confirm_password.onkeyup = validatePassword;
-</script>
 </html>

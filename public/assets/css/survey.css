@@ -38,9 +38,10 @@ h1.likert-header {
 }
 form .statement {
   display:block;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
-  padding: 30px 0 0 4.25%;
+  letter-spacing: 0.5pt;
+  padding: 70px 0 0 4.25%;
   margin-bottom:10px;
 }
 form .likert {
@@ -76,8 +77,8 @@ form .likert li input[type=radio] {
 }
 form .likert li label{
   width:100%;
-  color: #329bd4;
-  font-size: 18px;
+  color: #000000;
+  font-size: 16px;
 }
 form .buttons {
   margin:30px 0;

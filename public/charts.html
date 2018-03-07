@@ -1,30 +1,108 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <meta charset="UTF-8">
 
 <head>
 
-  <title>moodMap Results</title>
-  
-  <link rel="stylesheet" href="assets/css/survey.css">
+  <title>moodMap | Your Profile</title>
 
-  <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
+  <link rel="stylesheet" href="assets/css/survey.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico" />
 
 </head>
 
 <style>
+  body {
+    font-family: 'Poppins-Regular';
+    background-image: url("assets/images/charts_page.png");
+    background-repeat: repeat;
+  }
 
-body {font-family: Poppins-Regular; background-image: url("assets/images/charts_page.png"); background-repeat: repeat;}
-* {box-sizing: border-box}
+   h1 {
+    font-size: 14pt;
+    text-align: center;
+    letter-spacing: 2pt;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 
+  h2 {
+    font-size: 18pt;
+    text-align: left;
+    letter-spacing: 2pt;
+    font-weight: bold;
+    text-transform: uppercase;
+
+  }
+
+  section {
+    width: 35px;
+    height: 2px;
+    background-color: black;
+    margin: 6px 0;
+  }
 </style>
 
 <body>
 
-  <div class="container">
+  <!-- Hamburger  Menu -->
+  <div class="container-fluid">
+    <a href="index.html">
+      <div class="row" align="left">
+        <div class="col-lg-12">
+          <section></section>
+          <section></section>
+          <section></section>
+        </div>
+      </div>
+    </a>
+  </div>
 
-</div>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <!-- Header Image -->
+  <div class="container" style="padding-bottom: 5%;">
+    <div class="row" align="center">
+      <div class="col-lg-12">
+        <img src="./assets/images/moodmapp-01.png" width="250">
+      </div>
+    </div>
+    <div class="row" align="center">
+      <div class="col-lg-12">
+        <h1>Your Profile</h1>
+      </div>
+    </div>
+  </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>Your Goals</h2>
+          <ul>
+            <li>Goal One</li>
+            <li>Goal One</li>
+            <li>Goal One</li>
+            <li>Goal One</li>
+            <li>Goal One</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h2>Your Progress</h2>
+          <p>Pretty Graph Here</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12" style="text-align: center;">
+        <h4>Inspirational Quote Here</h4>
+        <blockquote>
+            "We must let go of the life we have planned, so as to accept the one that is waiting for us."
+        </blockquote>
+      </div>
+    </div>
+
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 </body>
 

@@ -5,7 +5,8 @@ const express    = require('express')
     , session    = require('express-session')
     , bodyParser = require('body-parser')
     , env        = require('dotenv').load()
-    , exphbs     = require('express-handlebars');
+    , exphbs     = require('express-handlebars')
+    , sequelize = require('sequelize');
 
 // Files
 // var routes = require('./controllers/controllers.js');
