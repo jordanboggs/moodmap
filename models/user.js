@@ -1,6 +1,34 @@
+// module.exports = function(sequelize, DataTypes) {
+// 	// Creates a "UserInfo" model that matches up with DB
+// var UserInfo = sequelize.define("UserInfo", {
+// 	userId: {
+// 			type:  DataTypes.INTEGER,
+// 			primaryKey: true, 
+// 	},
+// 	username: {
+// 			type:  DataTypes.STRING,
+// 			allowNull: false
+// 	},
+// 	password: {
+// 			type:  DataTypes.STRING,
+// 			allowNull: false
+// 	},
+// 	email: {
+// 			type:  DataTypes.STRING,
+// 			allowNull: false
+// 	}
+// });
+// UserInfo.associate = function(models) {
+// 	UserInfo.hasMany(models.Question1, {
+// 			onDelete: "cascade"
+// 	});
+// };
+// 	return UserInfo;
+// };
+
 module.exports = function(sequelize, Sequelize) {
   var User = sequelize.define('user', {
-		id: {
+		userId: {
 			autoIncrement: true,
 			primaryKey: true,
 			type: Sequelize.INTEGER
@@ -38,21 +66,9 @@ module.exports = function(sequelize, Sequelize) {
 		}
 	});
 	User.associate = function(models) {
-    User.hasMany(models.Question1, {
+    User.hasMany(models.Questions, {
 			onDelete: "cascade"
 		});
-		User.hasMany(models.Question2, {
-			onDelete: "cascade"
-		});
-		User.hasMany(models.Question3, {
-			onDelete: "cascade"
-		});
-		User.hasMany(models.Question4, {
-			onDelete: "cascade"
-		});
-		User.hasMany(models.Question5, {
-			onDelete: "cascade"
-    });
 	};
   return User;
 }
