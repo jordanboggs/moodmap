@@ -501,18 +501,17 @@ button:hover {
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  width: 100%;
+  width: 25%;
+  margin: 0 auto;
   height: 50px;
   border-radius: 3px;
   background: #576D8C;
-
-  font-family: Montserrat-Bold;
-  font-size: 12px;
+  font-family: 'Lato';
+  font-size: 16px;
   color: #fff;
   line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 1px;
-
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -637,3 +636,16 @@ button:hover {
 
 
 
+h3 {
+  text-transform: uppercase;
+  letter-spacing: 2pt;
+  font-weight:bold;
+  text-align:center;
+}
+
+#survey-input {
+  width: 75%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: rgb(255 255 255 0.5);
+}
