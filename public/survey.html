@@ -191,10 +191,12 @@
   <script src="assets/javascript/javascript.js"></script>
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <!-- <script type="text/javascript">
-    sessionStorage.setItem("MyId", 123);
-    var value = sessionStorage.getItem("MyId");
-  </script> -->
+  <script>
+    let userId;
+    $.get("/api/userId").then(function(data) { 
+      userId = data.userId;
+    });
+  </script>
 </body>
 
 </html>

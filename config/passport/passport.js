@@ -75,7 +75,6 @@ module.exports = function(passport, user) {
 
         const userinfo = user.get();
         return done(null, userinfo);
-        // ^^^^^ THIS is where I send user info
       }).catch(function(err) {
         console.log("Error:",err);
         
