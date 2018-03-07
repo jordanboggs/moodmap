@@ -153,7 +153,12 @@
     </div>
 
   </div>
-
+  <script>
+    let userId;
+    $.get("/api/userId").then(function(data) { 
+      userId = data.userId;
+    });
+  </script>
   <script>
     let userId;
     $.get("/api/userId").then(function(data) { 
