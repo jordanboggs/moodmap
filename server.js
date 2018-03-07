@@ -5,7 +5,8 @@ const express    = require('express')
     , session    = require('express-session')
     , bodyParser = require('body-parser')
     , env        = require('dotenv').load()
-    , exphbs     = require('express-handlebars');
+    , exphbs     = require('express-handlebars')
+    , sequelize = require('sequelize');
 
 // Files
 // var routes = require('./controllers/controllers.js');
@@ -18,7 +19,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // For Passport
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({
+  secret: process.env.LOCAL_SECRET, 
+  resave: true, 
+  saveUninitialized:true
+})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
