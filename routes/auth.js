@@ -8,17 +8,20 @@ module.exports = function(app, passport) {
   app.get('/signin', function(req, res) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
+  app.get('/survey', isLoggedIn, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/survey.html"));
+  });
   app.get('/dashboard', isLoggedIn, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/dashboard.html"));
   });
   app.get('/logout', authController.logout);
   
   app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/dashboard',
+    successRedirect: '/survey',
     failureRedirect: '/signup'
   }));
   app.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/dashboard',
+    successRedirect: '/survey',
     failureRedirect: '/signin'
   }));
 
