@@ -10,7 +10,7 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
     Question2.associate = function (models) {
-        Question2.belongsTo(models.UserInfo, {
+        Question2.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
             }
