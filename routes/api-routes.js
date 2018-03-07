@@ -4,7 +4,8 @@ var User = require("../models/user");
 module.exports = function(app) {
     //get user information
     
-    //get question1 answers
+
+    //get question answers
     app.get("/api/questions", function(req, res) {
         Questions.findAll({
             where: {
