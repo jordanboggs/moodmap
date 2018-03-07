@@ -62,6 +62,15 @@ module.exports = function(sequelize, Sequelize) {
 			defaultValue: 'active'
 		}
 	});
+	User.sync().then(() => {
+		User.create({
+		  firstname: 'Gregory',
+		  lastname: "Heroku",
+		  username: "gherokudude",
+		  email: "gherokudude@whatever.com",
+		  password: "fjkelwjfew",
+		});
+	  });
 	User.associate = function(models) {
     User.hasMany(models.Questions, {
 			onDelete: "cascade"
@@ -69,3 +78,4 @@ module.exports = function(sequelize, Sequelize) {
 	};
   return User;
 }
+
