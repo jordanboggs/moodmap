@@ -1,17 +1,3 @@
-<!-- <body>
-  <form id="signup" method="post" action="/signup">
-    <label for="email">Email Address</label>
-    <input class="text" name="email" type="email" />
-    <label for="firstname">Firstname</label>
-    <input name="firstname" type="text" />
-    <label for="lastname">Lastname</label>
-    <input name="lastname" type="text" />
-    <label for="password">Password</label>
-    <input name="password" type="password" />
-    <input class="btn" type="submit" value="Sign Up" />
-  </form> -->
-
-
 <!DOCTYPE html>
 <html>
 <style>
@@ -21,6 +7,7 @@ body {font-family: Poppins-Regular; background-image: url("assets/images/sunset.
 
 </style>
 
+  <img src="assets/images/moodmapp_small.png" alt="moodMap">
   <title>moodMap Sign Up</title>
   <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
@@ -29,26 +16,21 @@ body {font-family: Poppins-Regular; background-image: url("assets/images/sunset.
 
 <form id="signup" method="post" action="/signup">
   <div class="container">
-    <h1 style="color: #291B2C; font-style: Italic; font-size: 40px; text-align: center">Sign Up for moodMap</h1>
-    <hr>
+    <h1 style="color: #500023; font-style: Italic; font-size: 40px; text-align: center">Sign Up for moodMap</h1>
 
     <label for="email">Email</label>
-    <input type="email" class="textE" placeholder="Email Address" name="email" required>
+      <input type="email" class="textE" placeholder="Email Address" name="email" required>
 
     <label for="psw">Password</label>
-    <input type="password" class="text" placeholder="Enter Password" name="psw" required>
+      <input type="password" class="text" placeholder="Enter Password" name="psw" required>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" class="text" placeholder="Repeat Password" name="psw-repeat" required>
+      <input type="password" class="text" placeholder="Repeat Password" name="psw-repeat" required>
     
     <label>
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-    </label>
+    </label> 
     
-    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-    &nbsp;  
-
-<!--       <button type="button" class="btn">Cancel</button> -->
       <button type="submit" class="btn">Sign Up</button>
   </div>
 </form>
