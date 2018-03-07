@@ -25,6 +25,9 @@ app.use(passport.session()); // persistent login sessions
 // Models
 const models = require('./models');
 
+//Test
+// const test = require('./test/test');
+
 // Routes
 const authRoute = require('./routes/auth.js')(app, passport);
 app.use(express.static(path.join(__dirname, '/public')));
