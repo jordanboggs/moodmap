@@ -27,7 +27,7 @@
 // };
 
 module.exports = function(sequelize, Sequelize) {
-  var User = sequelize.define('user', {
+  var User = sequelize.define('User', {
 		userId: {
 			autoIncrement: true,
 			primaryKey: true,
