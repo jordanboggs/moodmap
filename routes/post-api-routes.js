@@ -1,10 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-    //get user information
-    
-
-    
+    //get user information    
 
     // GET route for getting all of the question data
     app.get("/api/charts/question_id/:id", function(req, res) {
@@ -20,3 +17,11 @@ module.exports = function(app) {
         });
     });  
 };
+
+// Create 
+router.post('/', function(req, res) {
+    MoodMap.create(req.body).then(function(moodmap) {
+        res.send('/moodmap' + moodmap.id);
+    });
+});
+
