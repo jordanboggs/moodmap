@@ -1,9 +1,10 @@
 var Nightmare = require("nightmare");
 var expect = require("chai").expect;
+var moodMapServer = require("../server.js");
 
     describe("moodMap", function () {
-        //setting timeout to 15 sec for now, default is 2
-        this.timeout(15000);
+        //setting timeout to 30 sec for now, default is 2
+        this.timeout(30000);
         it("Should send user to sign in page and then survey", function (done) {
             //Showing for testing, must set to false for demo
             Nightmare({
