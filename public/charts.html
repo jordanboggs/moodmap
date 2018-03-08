@@ -85,7 +85,7 @@
             </div>
           </div>
           <div>
-            <div class="chart-container" style="position: relative;">
+            <div class="chart-container chart4" style="position: relative;">
               <h4>Question 4 - Did you remember to take your medication today?</h4>
               <canvas id="question4"></canvas>
             </div>
@@ -102,6 +102,7 @@
     let userId;
     $.get("/api/userId").then(function (data) {
       userId = data.userId;
+      console.log("USER ID = " + userId);
     });
 
     var quotes = [{
