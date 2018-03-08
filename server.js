@@ -8,8 +8,7 @@ const express    = require('express')
     , exphbs     = require('express-handlebars')
     , sequelize = require('sequelize');
 
-// Files
-// var routes = require('./controllers/controllers.js');
+var exports = module.exports = {};
 
 // Port
 const PORT = process.env.PORT || 3000;
@@ -54,7 +53,8 @@ app.get('/', (req, res) => {
   res.sendfile(path.join(__dirname, "public/index.html"));
 });
 
-app.listen(PORT, (err) => {
+//Assigning app.listen to variable so that it can be exported to the close function to test.js
+var server = app.listen(PORT, (err) => {
   if (!err) {
     console.log("Listening on port",PORT);
   }
@@ -62,3 +62,8 @@ app.listen(PORT, (err) => {
     console.log(err);
   }
 });
+
+//Exporting close server function
+exports.closeServer = function() {
+  server.close();
+};
