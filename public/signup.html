@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html>
-<style>
-  body {
-    font-family: 'Lato';
-    background-image: url("assets/images/sunset.jpg");
-    background-repeat: no-repeat;
-  }
-
-  h1 {
-    font-size: 36pt;
-    text-align: center;
-    letter-spacing: 2pt;
-    font-weight: bold;
-  }
-
-  section {
-    width: 35px;
-    height: 2px;
-    background-color: black;
-    margin: 6px 0;
-  }
-</style>
 
 <title>moodMap Sign Up</title>
 <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+  crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+  crossorigin="anonymous"></script>
+<style>
+  body {
+    font-family: 'Lato';
+    font-size: 14pt;
+    background-image: url("assets/images/sunset.jpg");
+    background-repeat: no-repeat;
+  }
+</style>
 
 <body>
 
   <!-- Hamburger  Menu -->
-  <div class="container">
-    <a href="/"><section></section>
-    <section></section>
-    <section></section></a>
+  <div class="dropdown">
+    <button class="dropbtn">
+      <span class="glyphicon glyphicon-align-justify"></span>
+    </button>
+    <div class="dropdown-content">
+      <a href="index.html">Home</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="survey.html">Daily Survey</a>
+      <a href="charts.html">Your Profile</a>
+    </div>
   </div>
 
   <!-- Header Image -->
