@@ -61,10 +61,24 @@
     padding:50px;
   }
 
-  #leftcol {
+  #centerquote {
     padding: 20px;
-    text-align: left;
+    text-align: center;
+    font-size: 24pt;
     background-color: AliciaBlue;
+    font-family: Lora;
+  }
+
+  #author {
+    font-size: 16pt;
+    text-transform: uppercase;
+    letter-spacing: 2pt;
+    font-family: Lato;
+  }
+
+  #main-quote {
+    font-style: italic;
+    font-size: 24pt;
   }
 
   #rightcol {
@@ -108,22 +122,20 @@
   </div>
 
   <!-- Main Container -->
-  <div class="container" id="boxshadow">
+  <div class="container">
     <div class="row">
       <!-- Left -->
-      <div class="col-md-6" id="leftcol">
-        <h4>Daily Inspiration</h4>
+      <div class="col-md-12" id="centerquote">
         <div>
-            <p id="main-quote"></p>	
+            <blockquote id="main-quote"></blockquote>
             <p id="author"></p>		
           </div><!--end quoteContainer-->
           
       </div>
+      </div>
+      <div class="row" id="boxshadow">
       <!-- Right -->
-      <div class="col-md-6" id="rightcol">
-        <h2>Your Progress</h2>
-        <p>Pretty Graph Here</p>
-
+      <div class="col-md-12" id="rightcol">
         <div class="col-md-8">
           <h2>Your Progress</h2>
           <br>
