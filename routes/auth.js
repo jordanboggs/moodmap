@@ -6,21 +6,34 @@ module.exports = function(app, passport) {
     res.sendFile(path.join(__dirname, "/../public/signup.html"));
   });
   app.get('/signin', function(req, res) {
-    res.sendfile(path.join(__dirname, "../public/index.html"));
+    res.sendFile(path.join(__dirname, "../public/index.html"));
   });
-  app.get('/dashboard', isLoggedIn, function(req, res) {
-    res.sendfile(path.join(__dirname, "../public/dashboard.html"));
+  app.get('/survey', isLoggedIn, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/survey.html"));
+  });
+  app.get('/profile', isLoggedIn, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/charts.html"));
   });
   app.get('/logout', authController.logout);
+
+  // For getting user ID to HTML page
+  app.get('/api/userId', function(req, res) {
+    const userId = {"userId": req.user.userId}
+    // console.log("userId",userId);
+    return res.json(userId);
+  });  
   
   app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/dashboard',
+    successRedirect: '/survey',
     failureRedirect: '/signup'
   }));
   app.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/dashboard',
+    successRedirect: '/survey',
     failureRedirect: '/signin'
   }));
+  app.get("/charts", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/charts.html"));
+  });
 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();

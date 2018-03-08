@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html>
 <style>
+  body {
+    font-family: 'Lato';
+    background-image: url("assets/images/sunset.jpg");
+    background-repeat: no-repeat;
+  }
 
-body {font-family: Poppins-Regular; background-image: url("assets/images/sunset.jpg"); background-repeat: no-repeat;}
-* {box-sizing: border-box}
+  h1 {
+    font-size: 36pt;
+    text-align: center;
+    letter-spacing: 2pt;
+    font-weight: bold;
+  }
 
+  section {
+    width: 35px;
+    height: 2px;
+    background-color: black;
+    margin: 6px 0;
+}
 </style>
+<<<<<<< HEAD
 
   <img src="assets/images/moodmapp_small.png" alt="moodMap">
   <title>moodMap Sign Up</title>
   <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+=======
+<title>moodMap | Sign Up</title>
+<link rel="icon" type="image/png" href="assets/images/icons/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+>>>>>>> a5a9f5cdf2cf25ba26a06a93f0fd153be90c84f0
 
 <body>
 
-<form id="signup" method="post" action="/signup">
+  <!-- Hamburger  Menu -->
   <div class="container">
+<<<<<<< HEAD
     <h1 style="color: #500023; font-style: Italic; font-size: 40px; text-align: center">Sign Up for moodMap</h1>
 
     <label for="email">Email</label>
@@ -32,8 +54,49 @@ body {font-family: Poppins-Regular; background-image: url("assets/images/sunset.
     </label> 
     
       <button type="submit" class="btn">Sign Up</button>
+=======
+    <a href="index.html">
+    <div class="row" align="left">
+      <section></section>
+      <section></section>
+      <section></section>
+    </div></a>
+>>>>>>> a5a9f5cdf2cf25ba26a06a93f0fd153be90c84f0
   </div>
-</form>
 
+  <!-- Header Image -->
+  <div class="container-fluid">
+    <div class="row">
+      <p align="center">
+        <img src="./assets/images/moodmapp-01.png" width="250">
+      </p>
+      <p align="center">
+        <h3>Sign Up</h3>
+      </p>
+    </div>
+
+    <div class="row" id="survey-input">
+      <form id="signup" name="signup" method="post" action="/signup">
+        <label for="firstname">First name</label>
+        <input type="text" class="text" placeholder="First name" name="firstname" required>
+
+        <label for="lastname">Last name</label>
+        <input type="text" class="text" placeholder="Last name" name="lastname" required>
+        <label for="email">Email</label>
+        <input type="email" class="textE" placeholder="Email Address" name="email" required>
+
+        <label for="psw">Password</label>
+        <input type="password" class="text" placeholder="Enter Password" name="password" required>
+
+        <label for="psw-repeat">
+          <b>Repeat Password</b>
+        </label>
+        <input type="password" class="text" placeholder="Repeat Password" name="password-repeat" required>
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+    </div>
+
+</div>
 </body>
+
 </html>

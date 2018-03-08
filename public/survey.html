@@ -1,26 +1,148 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <meta charset="UTF-8">
 
 <head>
-
-  <title>moodMap Survey</title>
-  
+  <title>moodMap | Survey</title>
   <link rel="stylesheet" href="assets/css/survey.css">
-
-  <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
-
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+  <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico" />
+  <style>
+    body {
+      font-family: 'Lato';
+      background-image: url("assets/images/survey_clouds.jpg");
+      background-repeat: repeat;
+      font-size:18pt;
+    }
+  
+    h3 {
+      font-size: 36pt;
+      text-align: center;
+      letter-spacing: 2pt;
+      font-weight: bold;
+    }
+  
+    section {
+      width: 35px;
+      height: 2px;
+      background-color: black;
+      margin: 6px 0;
+    }
+  </style>
 </head>
-
-<style>
-
-body {font-family: Poppins-Regular; background-image: url("assets/images/survey_clouds.jpg"); background-repeat: repeat;}
-* {box-sizing: border-box}
-
-</style>
-
 <body>
 
+  <!-- Hamburger Menu -->
+  <div class="container">
+    <a href="/profile">
+      <div class="row" align="left">
+        <section></section>
+        <section></section>
+        <section></section>
+      </div>
+    </a>
+  </div>
+
+  <!-- Header Image -->
+  <div class="container-fluid" style="padding-bottom: 3%;">
+      <p align="center"><img src="./assets/images/moodmapp-01.png" width="250"></p>
+        <h3>Your Daily Survey</h3>
+  </div>
+
+  <!-- Form -->
+  <div class="container-fluid" id="survey-input2">
+    <form action="">
+      <label for="likert1" class="statement">How are you feeling today?</label>
+      <ul class="likert">
+        <li>
+          <input type="radio" name="likert1" value="5">
+          <label>Happy</label>
+        </li>
+        <li>
+          <input type="radio" name="likert1" value="4">
+          <label>Somewhat Happy</label>
+        </li>
+        <li>
+          <input type="radio" name="likert1" value="3">
+          <label>Neutral</label>
+        </li>
+        <li>
+          <input type="radio" name="likert1" value="2">
+          <label>Somewhat Unhappy</label>
+        </li>
+        <li>
+          <input type="radio" name="likert1" value="1">
+          <label>Unhappy</label>
+        </li>
+      </ul>
+      <label for="likert2" class="statement">What's your energy level today?</label>
+      <ul class="likert">
+          <li>
+          <input type="radio" name="likert2" value="1">
+          <label>No energy</label>
+        </li>
+        <li>
+          <input type="radio" name="likert2" value="2">
+          <label>Moderate energy</label>
+        </li>
+        <li>
+          <input type="radio" name="likert2" value="3">
+          <label>Lots of energy</label>
+        </li>
+      </ul>
+      <label for="likert3" class="statement">I had trouble falling or staying asleep.</label>
+      <ul class="likert">
+          <li>
+          <input type="radio" name="likert3" value="4">
+          <label>Strongly agree</label>
+        </li>
+        <li>
+          <input type="radio" name="likert3" value="3">
+          <label>Agree</label>
+        </li>
+        <li>
+          <input type="radio" name="likert3" value="2">
+          <label>Disagree</label>
+        </li>
+        <li>
+          <input type="radio" name="likert3" value="1">
+          <label>Strongly disagree</label>
+        </li>
+      </ul>
+      <label for="likert4" class="statement">Did you remember to take your medication today?</label>
+      <ul class="likert">
+          <li>
+          <input type="radio" name="likert4" value="1">
+          <label>Yes</label>
+        </li>
+        <li>
+          <input type="radio" name="likert4" value="0">
+          <label>No</label>
+        </li>
+      </ul>
+      <label for="likert5" class="statement">I'm having trouble concentrating on things such as television or reading a book</label>
+      <ul class="likert">
+          <li>
+          <input type="radio" name="likert5" value="4">
+          <label>Strongly agree</label>
+        </li>
+        <li>
+          <input type="radio" name="likert5" value="3">
+          <label>Agree</label>
+        </li>
+        <li>
+          <input type="radio" name="likert5" value="2">
+          <label>Disagree</label>
+        </li>
+        <li>
+          <input type="radio" name="likert5" value="1">
+          <label>Strongly disagree</label>
+        </li>
+      </ul>
+
+      <button class="btn" type="Submit">Submit</button>
+
+<<<<<<< HEAD
   <div class="wrap">
     <img src="assets/images/moodmapp_small.png" alt="moodMap">
 <!--   <h1 class="likert-header">This is Your Daily moodmap Survey</h1> -->
@@ -113,13 +235,55 @@ body {font-family: Poppins-Regular; background-image: url("assets/images/survey_
         <label>Strongly disagree</label>
             </li>
           </ul>
+=======
+    </form>
+  </div>
+>>>>>>> a5a9f5cdf2cf25ba26a06a93f0fd153be90c84f0
 
-      <button class="btn" type="Submit">Submit</button>
+  <script src="assets/javascript/javascript.js"></script>
 
-  </form>
-</div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script>
+    let userId;
+    $.get("/api/userId").then(function(data) { 
+      userId = data.userId;
+    });
+  </script>
+  <script>
 
+      // jQuery to capture user clicks
+  
+      $("#submit-button-id").on("click", function(event) {
+          event.preventDefault();
+        
+          // make a newCharacter obj
+          var newSurvey = {
+            feeling: $("input[name=likert1]").val().trim(),
+            energy: $("input[name=likert2]").val().trim(),
+            sleep: $("input[name=likert3]").val().trim(),
+            meds: $("input[name=likert4]").val().trim(),
+            concentrate: $("input[name=likert5]").val().trim()
+          };
+        
+          // send an AJAX POST-request with jQuery
+          $.post("/api/survey", newSurvey)
+            // on success, run this callback
+            .then(function(data) {
+              // log the data we found
+              console.log(data);
+              // tell the user we're adding a survey with an alert window
+              alert("Adding survey..."); // just for testing
+            });
+        
+          // empty each input box by replacing the value with an empty string
+          $("input[name=likert1]").val("");
+          $("input[name=likert2]").val("");
+          $("input[name=likert3]").val("");
+          $("input[name=likert4]").val("");
+          $("input[name=likert5]").val("");
+        
+        });
+    </script>      
 </body>
 
 </html>
