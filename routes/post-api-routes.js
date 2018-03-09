@@ -1,27 +1,26 @@
+var express = require('express');
 var db = require("../models");
 
-module.exports = function(app) {
-    //get user information    
+module.exports = function (app) {
+    app.post('/api/survey', function (req, res) {
+        console.log(db.Questions);
+        console.log('surveys route hit');
 
-    // GET route for getting all of the question data
-    app.get("/api/charts/question_id/:id", function(req, res) {
-        var query = {};
-        console.log(req.params.id);
-        if (req.params.id) {
-        query.questionId = req.params.id;
+        var answersArray = Object.values(req.body);
+        console.log(answersArray);
+        // Loop through Questions 1-5
+        var bulkArray = [];
+        for (let i = 1; i <= 5; i++) {
+            console.log("questionId:",i);
+            console.log("answer:",answersArray[i-1]); // -1 because arrays start at 0
+            bulkArray.push({
+                questionId: i,
+                answer: answersArray[i-1],
+                UserUserId: answersArray[0] // hard code for now
+            });
         }
-        db.Questions.findAll({
-        where: query
-    }).then(function(db) {
-        res.json(db);
+        db.Questions.bulkCreate(bulkArray).then(function (dbQuestions) {
+            res.json(dbQuestions);
         });
-    });  
-};
-
-// Create 
-router.post('/', function(req, res) {
-    MoodMap.create(req.body).then(function(moodmap) {
-        res.send('/moodmap' + moodmap.id);
     });
-});
-
+}

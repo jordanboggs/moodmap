@@ -34,25 +34,7 @@ module.exports = function(sequelize, Sequelize) {
 			defaultValue: 'active'
 		}
 	});
-	User.sync().then(() => {
-		//Dummy user data
-		User.create({
-		  userId: 1,
-		  firstname: 'Gregory',
-		  lastname: "Heroku",
-		  username: "gherokudude",
-		  email: "gherokudude@whatever.com",
-		  password: "fjkelwjfew"
-		});
-		User.create({
-			userId: 2,
-			firstname: 'Marjorie',
-			lastname: "Smoethson",
-			username: "majormarjorie",
-			email: "somethingelse@something.com",
-			password: "fjkelwjfew"
-		  });
-	  });
+	// User.sync();
 	User.associate = function(models) {
     User.hasMany(models.Questions, {
             onDelete: "cascade"

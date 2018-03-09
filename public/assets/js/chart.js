@@ -1,3 +1,74 @@
+let userId;
+$.get("/api/userId").then(function (data) {
+    userId = data.userId;
+    console.log("USER ID = " + userId);
+});
+
+var quotes = [{
+    quote: "Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible.",
+    name: "Francis of Assisi"
+    },
+    {
+    quote: "Believe you can and you're halfway there.",
+    name: "Theodore Roosevelt"
+    },
+    {
+    quote: "It does not matter how slowly you go as long as you do not stop.",
+    name: "Confucius"
+    },
+    {
+    quote: "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
+    name: "Thomas A. Edison"
+    },
+    {
+    quote: "The will to win, the desire to succeed, the urge to reach your full potential... these are the keys that will unlock the door to personal excellence.",
+    name: "Confucius"
+    },
+    {
+    quote: "Don't watch the clock; do what it does. Keep going.",
+    name: "Sam Levenson"
+    },
+    {
+    quote: "Start where you are. Use what you have. Do what you can.",
+    name: "Arthur Ashe"
+    },
+    {
+    quote: "Be yourself; everyone else is already taken.",
+    name: "Oscar Wilde"
+    },
+    {
+    quote: "Always remember that you are absolutely unique. Just like everyone else.",
+    name: "Margaret Mead"
+    },
+    {
+    quote: "Do not take life too seriously. You will never get out of it alive.",
+    name: "Elbert Hubbard"
+    },
+    {
+    quote: "Procrastination is the art of keeping up with yesterday.",
+    name: "Don Marquis"
+    },
+    {
+    quote: "Always do whatever's next.",
+    name: "George Carlin"
+    },
+    {
+    quote: "Hapiness is not something ready made. It comes from your own actions.",
+    name: "Dalai Lama"
+    }
+];
+
+function getQuote() {
+    var randomQuote = Math.floor(Math.random() * quotes.length);
+    var selectedQuote = quotes[randomQuote];
+    $('#main-quote').append(selectedQuote.quote);
+    $('#author').append(selectedQuote.name);
+};
+
+$(function () {
+    getQuote(); // call initially and get random quote
+});
+
 //chart1
 var quest1Data = [];
 var quest1Labels = [];
@@ -5,11 +76,13 @@ var questionId = 1;
 var formattedDate;
 
 $.get("/api/charts/question_id/" + questionId, function(data) {
-    //console.log(data);
+    console.log(data);
     for (var i = 0; i < data.length; i++) {
-        quest1Data.push(data[i].answer);
-        formattedDate = moment(data[i].createdAt).format("dddd");
-        quest1Labels.push(formattedDate);        
+        if(data[i].UserUserId === userId){
+            quest1Data.push(data[i].answer);
+            formattedDate = moment(data[i].createdAt).format("MMM Do YY");
+            quest1Labels.push(formattedDate);
+        }        
     }   
 
     var ctx = document.getElementById("question1").getContext('2d');
@@ -74,9 +147,11 @@ questionId = 2;
 $.get("/api/charts/question_id/" + questionId, function(data) {
     //console.log(data);
     for (var i = 0; i < data.length; i++) {
-        quest2Data.push(data[i].answer);
-        formattedDate = moment(data[i].createdAt).format("MMM Do YY");
-        quest2Labels.push(formattedDate);       
+        if(data[i].UserUserId === userId){
+            quest2Data.push(data[i].answer);
+            formattedDate = moment(data[i].createdAt).format("MMM Do YY");
+            quest2Labels.push(formattedDate);   
+        }    
     }   
 
     var ctx = document.getElementById("question2").getContext('2d');
@@ -137,9 +212,11 @@ questionId = 3;
 $.get("/api/charts/question_id/" + questionId, function(data) {
     //console.log(data);
     for (var i = 0; i < data.length; i++) {
-        quest3Data.push(data[i].answer);
-        formattedDate = moment(data[i].createdAt).format("MMM Do YY");
-        quest3Labels.push(formattedDate);    
+        if(data[i].UserUserId === userId){
+            quest3Data.push(data[i].answer);
+            formattedDate = moment(data[i].createdAt).format("MMM Do YY");
+            quest3Labels.push(formattedDate);   
+        } 
     }   
 
     var ctx = document.getElementById("question3").getContext('2d');
@@ -203,14 +280,16 @@ var noCount = 0;
 $.get("/api/charts/question_id/" + questionId, function(data) {
     //console.log(data);
     for (var i = 0; i < data.length; i++) {
-        if(data[i].answer === '1'){
-            yesCount += 1;
+        if(data[i].UserUserId === userId){
+            if(data[i].answer === '1'){
+                yesCount += 1;
+            }
+            else if(data[i].answer === '0'){
+                noCount += 1;
+            }
+            formattedDate = moment(data[i].createdAt).format("MMM Do YY");
+            quest4Labels.push(formattedDate);   
         }
-        else if(data[i].answer === '0'){
-            noCount += 1;
-        }
-        formattedDate = moment(data[i].createdAt).format("MMM Do YY");
-        quest4Labels.push(formattedDate);   
     }   
 
     var ctx = document.getElementById("question4").getContext('2d');
@@ -269,9 +348,11 @@ questionId = 5;
 $.get("/api/charts/question_id/" + questionId, function(data) {
     //console.log(data);
     for (var i = 0; i < data.length; i++) {
-        quest5data.push(data[i].answer);
-        formattedDate = moment(data[i].createdAt).format("MMM Do YY");
-        quest5Labels.push(formattedDate);   
+        if(data[i].UserUserId === userId){
+            quest5data.push(data[i].answer);
+            formattedDate = moment(data[i].createdAt).format("MMM Do YY");
+            quest5Labels.push(formattedDate);   
+        }
     }   
 
     var ctx = document.getElementById("question5").getContext('2d');
