@@ -2,10 +2,13 @@ var Nightmare = require("nightmare");
 var expect = require("chai").expect;
 var moodMapServer = require("../server.js");
 
+//Run local server first and set up email to be "mctest@test.com" with password "test" so that the test can sign in
+//Close out and run "npm test"
+
 describe("moodMap", function () {
     //setting timeout to 30 sec for now, default is 2
     this.timeout(30000);
-    it("Should send user to sign in page and then survey", function (done) {
+    it("Should send user to sign in page to survey, then profile", function (done) {
         Nightmare({
                 show: true
             })
@@ -48,8 +51,13 @@ describe("moodMap", function () {
             .wait(2000)
             .scrollTo(1800, 0)
             .wait(2000)
+            //evaulate title of document
+            .evaluate(function () {
+                return document.title;
+            })
             .end()
-            .then(function () {
+            .then(function (title) {
+                expect(title).to.equal('moodMap | Your Profile');
                 done();
             }).catch(done);
     });
