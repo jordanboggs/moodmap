@@ -136,7 +136,7 @@
         </li>
       </ul>
 
-      <button class="btn" type="Submit">Submit</button>
+      <button class="btn" type="Submit" id="submit-button-id">Submit</button>
 
     </form>
   </div>
@@ -174,6 +174,13 @@
           // tell the user we're adding a survey with an alert window
           alert("Adding survey..."); // just for testing
         });
+
+      $.ajax({
+        type: "POST",
+        url: '/api/survey',
+        data: newSurvey,
+        dataType: 'json'
+      });
 
       // empty each input box by replacing the value with an empty string
       $("input[name=likert1]").val("");

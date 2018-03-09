@@ -1,27 +1,21 @@
+var express = require('express');
 var db = require("../models");
 
-module.exports = function(app) {
-    //get user information    
+var router = express.Router();
 
-    // GET route for getting all of the question data
-    app.get("/api/charts/question_id/:id", function(req, res) {
-        var query = {};
-        console.log(req.params.id);
-        if (req.params.id) {
-        query.questionId = req.params.id;
-        }
-        db.Questions.findAll({
-        where: query
-    }).then(function(db) {
-        res.json(db);
-        });
-    });  
-};
+router.post('/api/survey', function(req, res) {
+    console.log(db.moodmap);  
+    console.log('surveys route hit');
+}
 
-// Create 
-router.post('/', function(req, res) {
-    MoodMap.create(req.body).then(function(moodmap) {
-        res.send('/moodmap' + moodmap.id);
-    });
-});
 
+    
+// // Create 
+// router.post('/', function(req, res) {
+//     MoodMap.create(req.body).then(function(moodmap) {
+//         res.send('/moodmap' + moodmap.id);
+//     });
+// });
+
+
+module.exports = router;
