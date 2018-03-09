@@ -39,6 +39,16 @@ module.exports = function(passport, user) {
             if (!newUser) return done(null, false);
             if (newUser) return done(null, newUser);
           });
+
+//           function deletePost() {
+//     var ask = window.confirm("Are you sure you want to delete this post?");
+//     if (ask) {
+//         window.alert("This post was successfully deleted.");
+
+//         window.location.href = "window-location.html";
+
+//     }
+// }
         }
       });
     }
