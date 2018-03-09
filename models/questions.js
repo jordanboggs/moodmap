@@ -19,60 +19,7 @@ module.exports = function (sequelize, DataTypes) {
     }, {
         timestamps: true
     });
-    Questions.sync().then(() => {
-        //first set of question dummy data
-        Questions.create({
-            questionId: 1,
-            answer: "5",
-            id: 1
-        });
-        Questions.create({
-            questionId: 2,
-            answer: "3",
-            id: 1
-        });
-        Questions.create({
-            questionId: 3,
-            answer: "2",
-            id: 1
-        });
-        Questions.create({
-            questionId: 4,
-            answer: "1",
-            id: 1
-        });
-        Questions.create({
-            questionId: 5,
-            answer: "5",
-            id: 1
-        });
-        //second set of question dummy data
-        Questions.create({
-            questionId: 1,
-            answer: "4",
-            id: 2
-        });
-        Questions.create({
-            questionId: 2,
-            answer: "1",
-            id: 2
-        });
-        Questions.create({
-            questionId: 3,
-            answer: "1",
-            id: 2
-        });
-        Questions.create({
-            questionId: 4,
-            answer: "1",
-            id: 2
-        });
-        Questions.create({
-            questionId: 5,
-            answer: "3",
-            id: 2
-        });
-    });
+    // Questions.sync();
     Questions.associate = function (models) {
         Questions.belongsTo(models.User, {
             foreignKey: {
