@@ -34,7 +34,7 @@ module.exports = function(sequelize, Sequelize) {
 			defaultValue: 'active'
 		}
 	});
-	User.sync();
+	// User.sync();
 	User.associate = function(models) {
     User.hasMany(models.Questions, {
             onDelete: "cascade"
