@@ -5,7 +5,7 @@ module.exports = function (app) {
     app.post('/api/survey', function (req, res) {
         console.log(db.Questions);
         console.log('surveys route hit');
-
+        console.log("req",req.body);
         var answersArray = Object.values(req.body);
         console.log("answersArray",answersArray);
         // Loop through Questions 1-5

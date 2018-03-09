@@ -165,13 +165,13 @@ document.getElementById("submit-button-id").onclick = function () {
       // make a newCharacter obj
       var newSurvey = {
         userId: userId,
-        feeling: $("input[name=likert1]").val().trim(),
-        energy: $("input[name=likert2]").val().trim(),
-        sleep: $("input[name=likert3]").val().trim(),
-        meds: $("input[name=likert4]").val().trim(),
-        concentrate: $("input[name=likert5]").val().trim()
+        feeling: $("input[name=likert1]:checked").val().trim(),
+        energy: $("input[name=likert2]:checked").val().trim(),
+        sleep: $("input[name=likert3]:checked").val().trim(),
+        meds: $("input[name=likert4]:checked").val().trim(),
+        concentrate: $("input[name=likert5]:Checked").val().trim()
       };
-      console.log(newSurvey);
+
       // // send an AJAX POST-request with jQuery
       // $.post("/api/survey", newSurvey)
       //   // on success, run this callback
@@ -187,15 +187,14 @@ document.getElementById("submit-button-id").onclick = function () {
         url: '/api/survey',
         data: newSurvey,
         dataType: 'json'
+      }).then(function() {
+        // empty each input box by replacing the value with an empty string
+        $("input[name=likert1]").val("");
+        $("input[name=likert2]").val("");
+        $("input[name=likert3]").val("");
+        $("input[name=likert4]").val("");
+        $("input[name=likert5]").val("");
       });
-
-      // empty each input box by replacing the value with an empty string
-      $("input[name=likert1]").val("");
-      $("input[name=likert2]").val("");
-      $("input[name=likert3]").val("");
-      $("input[name=likert4]").val("");
-      $("input[name=likert5]").val("");
-
     });
   </script>
 </body>
