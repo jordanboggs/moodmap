@@ -13,7 +13,9 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         }
     }, {
-        timestamps: true
+        timestamps: true,
+        // createdAt: true,
+        updatedAt: false
     });
     // Questions.sync();
     Questions.associate = function (models) {
