@@ -29,32 +29,12 @@ var quotes = [{
     name: "Sam Levenson"
     },
     {
-    quote: "A creative man is motivated by the desire to achieve, not by the desire to beat others.",
-    name: "Ayn Rand"
-    },
-    {
-    quote: "A creative man is motivated by the desire to achieve, not by the desire to beat others.",
-    name: "Ayn Rand"
-    },
-    {
-    quote: "Expect problems and eat them for breakfast.",
-    name: "Alfred A. Montapert"
-    },
-    {
     quote: "Start where you are. Use what you have. Do what you can.",
     name: "Arthur Ashe"
     },
     {
-    quote: "Ever tried. Ever failed. No matter. Try Again. Fail again. Fail better.",
-    name: "Samuel Beckett"
-    },
-    {
     quote: "Be yourself; everyone else is already taken.",
     name: "Oscar Wilde"
-    },
-    {
-    quote: "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
-    name: "Albert Einstein"
     },
     {
     quote: "Always remember that you are absolutely unique. Just like everyone else.",
@@ -65,28 +45,8 @@ var quotes = [{
     name: "Elbert Hubbard"
     },
     {
-    quote: "People who think they know everything are a great annoyance to those of us who do.",
-    name: "Isaac Asimov"
-    },
-    {
     quote: "Procrastination is the art of keeping up with yesterday.",
     name: "Don Marquis"
-    },
-    {
-    quote: "Get your facts first, then you can distort them as you please.",
-    name: "Mark Twain"
-    },
-    {
-    quote: "A day without sunshine is like, you know, night.",
-    name: "Steve Martin"
-    },
-    {
-    quote: "My grandmother started walking five miles a day when she was sixty. She's ninety-seven now, and we don't know where the hell she is.",
-    name: "Ellen DeGeneres"
-    },
-    {
-    quote: "Don't sweat the petty things and don't pet the sweaty things.",
-    name: "George Carlin"
     },
     {
     quote: "Always do whatever's next.",
