@@ -147,6 +147,10 @@
   </div>
 
   <script>
+document.getElementById("submit-button-id").onclick = function () {
+        location.href = "/profile";
+    };
+
     let userId;
     $.get("/api/userId").then(function (data) {
       userId = data.userId;
