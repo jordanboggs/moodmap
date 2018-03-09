@@ -74,6 +74,7 @@ module.exports = function (sequelize, DataTypes) {
     //         UserId: 2
     //     });
     // })
+    //
     ;
     Questions.associate = function (models) {
         Questions.belongsTo(models.User, {
