@@ -11,10 +11,6 @@ module.exports = function (sequelize, DataTypes) {
         answer: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        date: {
-            type: DataTypes.DATEONLY,
-            // allowNull: false
         }
     }, {
         timestamps: true

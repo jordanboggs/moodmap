@@ -33,6 +33,8 @@ const models = require('./models');
 const authRoute = require('./routes/auth.js')(app, passport);
 app.use(express.static(path.join(__dirname, '/public')));
 require("./routes/api-routes.js")(app);
+require("./routes/post-api-routes.js")(app);
+
 
 // Load passport strategies
 require('./config/passport/passport.js')(passport, models.User);
