@@ -7,6 +7,11 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
   crossorigin="anonymous">
+<!-- jQuery 2.x which Bootstrap requires for some reason?-->
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
   crossorigin="anonymous"></script>
@@ -54,18 +59,32 @@
         <label for="email">Email</label>
         <input type="email" class="textE" placeholder="Email Address" name="email" required>
 
-        <label for="psw">Password</label>
-        <input type="password" class="text" placeholder="Enter Password" name="password" required>
+        <label for="password">Password</label>
+        <input type="password" class="text" placeholder="Enter Password" id="password" name="password" required>
 
-        <label for="psw-repeat">
+        <label for="password-repeat">
           <b>Repeat Password</b>
         </label>
-        <input type="password" class="text" placeholder="Repeat Password" name="password-repeat" required>
+        <input type="password" class="text" placeholder="Repeat Password" id="password-repeat" name="password-repeat" required>
         <button type="submit" class="btn">Sign Up</button>
       </form>
     </div>
 
   </div>
+  <script>
+    var password = document.getElementById("password");
+    var confirm_password = document.getElementById("password-repeat");
+    function validatePassword(){
+      if (password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords don't match.");
+      } 
+      else {
+        confirm_password.setCustomValidity('');
+      }
+    }
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+  </script>  
 </body>
 
 </html>
