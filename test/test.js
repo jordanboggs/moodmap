@@ -55,7 +55,6 @@ describe("moodMap", function () {
 
             //evaulate title of document
             .evaluate(function () {
-                // moodMapServer.closeServer();
                 return document.title;
             })
             .end()
