@@ -16,7 +16,7 @@ module.exports = function (app) {
             bulkArray.push({
                 questionId: i,
                 answer: answersArray[i-1],
-                UserUserId: 1 // hard code for now
+                UserUserId: answersArray[0] // hard code for now
             });
         }
         db.Questions.bulkCreate(bulkArray).then(function (dbQuestions) {

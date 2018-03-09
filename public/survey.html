@@ -164,6 +164,7 @@ document.getElementById("submit-button-id").onclick = function () {
 
       // make a newCharacter obj
       var newSurvey = {
+        userId: userId,
         feeling: $("input[name=likert1]").val().trim(),
         energy: $("input[name=likert2]").val().trim(),
         sleep: $("input[name=likert3]").val().trim(),
