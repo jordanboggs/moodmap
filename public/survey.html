@@ -171,7 +171,7 @@ document.getElementById("submit-button-id").onclick = function () {
         meds: $("input[name=likert4]").val().trim(),
         concentrate: $("input[name=likert5]").val().trim()
       };
-
+      console.log(newSurvey);
       // // send an AJAX POST-request with jQuery
       // $.post("/api/survey", newSurvey)
       //   // on success, run this callback
