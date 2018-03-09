@@ -7,30 +7,20 @@ module.exports = function (app) {
         console.log('surveys route hit');
 
         var answersArray = Object.values(req.body);
-
+        console.log(answersArray);
+        // Loop through Questions 1-5
+        var bulkArray = [];
         for (let i = 1; i <= 5; i++) {
-            db.Questions.create({
+            console.log("questionId:",i);
+            console.log("answer:",answersArray[i-1]); // -1 because arrays start at 0
+            bulkArray.push({
                 questionId: i,
-                answer: answersArray[i]
-            })
+                answer: answersArray[i-1],
+                UserUserId: 1 // hard code for now
+            });
         }
-
-
+        db.Questions.bulkCreate(bulkArray).then(function (dbQuestions) {
+            res.json(dbQuestions);
+        });
     });
 }
-
-
-
-// // POST route for saving a new todo
-// app.post("/api/todos", function(req, res) {
-//     // create takes an argument of an object describing the item we want to
-//     // insert into our table. In this case we just we pass in an object with a text
-//     // and complete property
-//     db.Todo.create({
-//       text: req.body.text,
-//       complete: req.body.complete
-//     }).then(function(dbTodo) {
-//       // We have access to the new todo as an argument inside of the callback function
-//       res.json(dbTodo);
-//     });
-//   });
