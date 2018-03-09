@@ -32,7 +32,7 @@ module.exports = function(app, passport) {
     failureRedirect: '/signin'
   }));
   app.get("/charts", isLoggedIn, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/charts"));
+    res.sendFile(path.join(__dirname, "../public/charts.html"));
   });
 
   function isLoggedIn(req, res, next) {
