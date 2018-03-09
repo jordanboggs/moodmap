@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
     }, {
         timestamps: true
     });
-    Questions.sync();
+    // Questions.sync();
     Questions.associate = function (models) {
         Questions.belongsTo(models.User, {
             foreignKey: {
