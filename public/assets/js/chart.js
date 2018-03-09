@@ -2,12 +2,14 @@
 var quest1Data = [];
 var quest1Labels = [];
 var questionId = 1;
+var formattedDate;
 
 $.get("/api/charts/question_id/" + questionId, function(data) {
-    console.log(data);
+    //console.log(data);
     for (var i = 0; i < data.length; i++) {
         quest1Data.push(data[i].answer);
-        quest1Labels.push(data[i].createdAt);
+        formattedDate = moment(data[i].createdAt).format("dddd");
+        quest1Labels.push(formattedDate);        
     }   
 
     var ctx = document.getElementById("question1").getContext('2d');
@@ -70,10 +72,11 @@ var quest2Labels = [];
 questionId = 2;
 
 $.get("/api/charts/question_id/" + questionId, function(data) {
-    console.log(data);
+    //console.log(data);
     for (var i = 0; i < data.length; i++) {
         quest2Data.push(data[i].answer);
-        quest2Labels.push(data[i].createdAt);
+        formattedDate = moment(data[i].createdAt).format("MMM Do YY");
+        quest2Labels.push(formattedDate);       
     }   
 
     var ctx = document.getElementById("question2").getContext('2d');
@@ -108,7 +111,17 @@ $.get("/api/charts/question_id/" + questionId, function(data) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero:true
+                        beginAtZero:true,
+                        callback: function(label, index, labels) {
+                            switch (label) {
+                                case 1:
+                                    return 'No Energy';
+                                case 2:
+                                    return 'Moderate Energy';
+                                case 3:
+                                    return 'Lots of Energy';
+                            }
+                        }
                     }
                 }]
             }
@@ -122,10 +135,11 @@ var quest3Labels = [];
 questionId = 3;
 
 $.get("/api/charts/question_id/" + questionId, function(data) {
-    console.log(data);
+    //console.log(data);
     for (var i = 0; i < data.length; i++) {
         quest3Data.push(data[i].answer);
-        quest3Labels.push(data[i].createdAt);
+        formattedDate = moment(data[i].createdAt).format("MMM Do YY");
+        quest3Labels.push(formattedDate);    
     }   
 
     var ctx = document.getElementById("question3").getContext('2d');
@@ -160,7 +174,19 @@ $.get("/api/charts/question_id/" + questionId, function(data) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero:true
+                        beginAtZero:true,
+                        callback: function(label, index, labels) {
+                            switch (label) {
+                                case 1:
+                                    return 'Strongly Agree';
+                                case 2:
+                                    return 'Agree';
+                                case 3:
+                                    return 'Disagree';
+                                case 4:
+                                    return 'Strongly Disagree';
+                            }
+                        }
                     }
                 }]
             }
@@ -169,25 +195,32 @@ $.get("/api/charts/question_id/" + questionId, function(data) {
 });
 
 //chart4
-var quest4Data = [];
 var quest4Labels = [];
 questionId = 4;
+var yesCount = 0;
+var noCount = 0;
 
 $.get("/api/charts/question_id/" + questionId, function(data) {
-    console.log(data);
+    //console.log(data);
     for (var i = 0; i < data.length; i++) {
-        quest4Data.push(data[i].answer);
-        quest4Labels.push(data[i].createdAt);
+        if(data[i].answer === '1'){
+            yesCount += 1;
+        }
+        else if(data[i].answer === '0'){
+            noCount += 1;
+        }
+        formattedDate = moment(data[i].createdAt).format("MMM Do YY");
+        quest4Labels.push(formattedDate);   
     }   
 
     var ctx = document.getElementById("question4").getContext('2d');
 
     var question4 = new Chart(ctx, {
-        type: 'bar',
+        type: 'pie',
         data: {        
             labels: quest4Labels, 
             datasets: [{
-                data: quest4Data,
+                data: [yesCount,noCount],
                 fill: false,
                 pointHoverBackgroundColor: 'rgba(255, 99, 132, 0.2)',
                 backgroundColor: [
@@ -212,7 +245,15 @@ $.get("/api/charts/question_id/" + questionId, function(data) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero:true
+                        beginAtZero:true,
+                        callback: function(label, index, labels) {
+                            switch (label) {
+                                case 1:
+                                    return 'Yes';
+                                case 2:
+                                    return 'No';
+                            }
+                        }
                     }
                 }]
             }
@@ -226,16 +267,17 @@ var quest5Labels = [];
 questionId = 5;
 
 $.get("/api/charts/question_id/" + questionId, function(data) {
-    console.log(data);
+    //console.log(data);
     for (var i = 0; i < data.length; i++) {
         quest5data.push(data[i].answer);
-        quest5Labels.push(data[i].createdAt);
+        formattedDate = moment(data[i].createdAt).format("MMM Do YY");
+        quest5Labels.push(formattedDate);   
     }   
 
     var ctx = document.getElementById("question5").getContext('2d');
 
     var question5 = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {        
             labels: quest5Labels, 
             datasets: [{
@@ -264,7 +306,19 @@ $.get("/api/charts/question_id/" + questionId, function(data) {
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero:true
+                        beginAtZero:true,
+                        callback: function(label, index, labels) {
+                            switch (label) {
+                                case 1:
+                                    return 'Strongly Agree';
+                                case 2:
+                                    return 'Agree';
+                                case 3:
+                                    return 'Disagree';
+                                case 4:
+                                    return 'Strongly Disagree';
+                            }
+                        }
                     }
                 }]
             }

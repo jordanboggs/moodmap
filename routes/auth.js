@@ -31,7 +31,7 @@ module.exports = function(app, passport) {
     successRedirect: '/survey',
     failureRedirect: '/signin'
   }));
-  app.get("/charts", function(req, res) {
+  app.get("/charts", isLoggedIn, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/charts.html"));
   });
 
