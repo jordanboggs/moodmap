@@ -54,7 +54,6 @@ module.exports = function(sequelize, Sequelize) {
 	// 		password: "fjkelwjfew"
 	// 	  });
 	// 	})
-	//
 		;
 	User.associate = function(models) {
     User.hasMany(models.Questions, {
