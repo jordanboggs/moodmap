@@ -6,7 +6,6 @@ describe("moodMap", function () {
     //setting timeout to 30 sec for now, default is 2
     this.timeout(30000);
     it("Should send user to sign in page and then survey", function (done) {
-        //Showing for testing, must set to false for demo
         Nightmare({
                 show: true
             })
@@ -39,29 +38,19 @@ describe("moodMap", function () {
             //Clicks on radio button for Disagree
             .click('input[type="radio"][name="likert5"][value="2"]')
             .wait(2000)
-            .scrollTo(0, 0)
-            .wait(1000)
-            //click on profile on dropdown menu
-            .click('button[class="dropbtn"]')
-            .wait(1000)
-            .click('a[href="/charts"]')
-            .wait(4000)
+            //click submit button for survey
+            .click('button[class="btn"]')
+            .wait(2000)
             //Scroll down dashboard page to see results
             .scrollTo(600, 0)
             .wait(2000)
-            .scrollTo(900, 0)
+            .scrollTo(1000, 0)
             .wait(2000)
-            .scrollTo(1500, 0)
+            .scrollTo(1800, 0)
             .wait(2000)
-            // //evaulate title of document
-            // .evaluate(function () {
-            //     return document.title;
-            // })
             .end()
-            .then(function (title) {
-                // expect(title).to.equal('moodMap | Survey');
+            .then(function () {
                 done();
-
             }).catch(done);
     });
     it("Should close the server", function (done) {
