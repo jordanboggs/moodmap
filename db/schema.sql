@@ -1,4 +1,4 @@
-CREATE DATABASE MoodMap;
+CREATE DATABASE moodmap;
 
-USE MoodMap;
+USE moodmap;
 
